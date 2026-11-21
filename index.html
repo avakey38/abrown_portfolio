@@ -1,197 +1,500 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Ava Brown Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-.project-card-link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
+    <title>Ava Brown | GIS Portfolio</title>
 
-.project-card {
-    cursor: pointer;
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.project-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7f8;
+            color: #253746;
+            line-height: 1.7;
+        }
 
-.view-project {
-    display: inline-block;
-    color: #2563eb;
-    font-weight: bold;
-    margin-top: 12px;
-}
-.project-card img {
-    width: 100%;
-    height: 300px;
-    object-fit: contain;
-    display: block;
-    border-radius: 8px;
-}
+        /* HEADER */
 
-.kenow {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-    max-width: 600px;
-    margin: 25px auto;
-}
+        header {
+            background: #142c3e;
+            color: white;
+            padding: 65px 20px;
+            text-align: center;
+        }
 
-.kenow h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: #1e293b;
-}
+        header h1 {
+            font-size: 42px;
+            margin-bottom: 8px;
+        }
 
-.kenow p {
-    color: #64748b;
-    line-height: 1.6;
-}
+        header p {
+            color: #c5d5dc;
+            font-size: 16px;
+        }
 
-.kenow-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    margin-top: 18px;
-}
+        .subtitle {
+            color: #a6c8b7;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
 
-.kenow-gallery img {
-    width: 100%;
-    height: 150px;
-    object-fit: contain;
-    background: #f1f5f9;
-    border-radius: 8px;
-}
+        /* NAVIGATION */
 
-.report-button {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 8px 14px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    font-size: 13px;
-    border-radius: 6px;
-}
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
 
-.report-button:hover {
-    background: #1d4ed8;
-}
+        nav a {
+            color: #344b5b;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-@media (max-width: 500px) {
-    .kenow-gallery img {
-        height: 110px;
-    }
-}
+        nav a:hover {
+            color: #39836a;
+        }
 
-</style>
+        /* GENERAL SECTIONS */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 45px 22px;
+        }
+
+        .section-title {
+            font-size: 27px;
+            color: #19374a;
+            margin-bottom: 22px;
+        }
+
+        /* ABOUT */
+
+        .about {
+            background: white;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        }
+
+        /* SKILLS */
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .skill {
+            background: #e5f0eb;
+            color: #28664f;
+            padding: 7px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* PROJECT GRID */
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 25px;
+        }
+
+        /* PROJECT CARDS */
+
+        .project-card {
+            background: white;
+            border-radius: 13px;
+            overflow: hidden;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease,
+                        box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 220px;
+            object-fit: contain;
+            background: #edf1f3;
+            display: block;
+        }
+
+        .project-content {
+            padding: 22px;
+        }
+
+        .project-content h3 {
+            color: #19374a;
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .project-content p {
+            color: #667784;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            color: #39836a;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        /* PROJECT BUTTONS */
+
+        .project-button {
+            display: inline-block;
+            padding: 9px 15px;
+            background: #234b60;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            margin-right: 7px;
+            margin-top: 5px;
+            transition: background 0.2s ease;
+        }
+
+        .project-button:hover {
+            background: #39836a;
+        }
+
+        .project-button.secondary {
+            background: #e7efeb;
+            color: #28664f;
+        }
+
+        .project-button.secondary:hover {
+            background: #d2e5da;
+        }
+
+        /* KENOW IMAGE GALLERY */
+
+        .kenow-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 9px;
+            margin-bottom: 18px;
+        }
+
+        .kenow-gallery img {
+            width: 100%;
+            height: 145px;
+            object-fit: contain;
+            background: #edf1f3;
+            border-radius: 7px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #142c3e;
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .contact h2 {
+            margin-bottom: 12px;
+        }
+
+        .contact a {
+            color: #a6d5bd;
+            text-decoration: none;
+        }
+
+        footer {
+            background: #102333;
+            color: #b7c5cc;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            header h1 {
+                font-size: 32px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 30px 16px;
+            }
+
+            nav a {
+                margin: 0 8px;
+                font-size: 12px;
+            }
+
+            .project-image {
+                height: 190px;
+            }
+
+            .kenow-gallery img {
+                height: 115px;
+            }
+        }
+
+    </style>
 </head>
 
 <body>
-    <h1>Ava Brown Portfolio</h1>
-   
- <h2>About Me</h2>
-    <p>University of Alberta Graduate with a Bacherlor of Science in Psychology and Earth & Atmosphere Sciences</p>
 
-    <h2>My Skills</h2>
-    <p>GIS & R Programming</p>
+<!-- HEADER -->
 
- 
-
-<section id="projects">
-    <h2>Projects</h2>
-
-    <div class="SCS">
-        <h3>Accessibility Analysis of Safe Consumption Sites & Hospitals in Vancouver</h3>
-        <img src="projects/SCS/scs_pres.png"
-              width="400">
-    </div>
-<a href="projects/SCS/scs_report.pdf"
-   target="_blank">
-	View Report PDF
-   
-</a>
-
-
-
-<p></p>
-<p></p>
-  
-<a href="https://ava-12-red.shinyapps.io/shelter_analysis_alberta_2013_2024/"
-   target="_blank"
-   class="project-card-link">
-
-    <div class="project-card">
-
-        <img src="projects/dashboard/cover.png"
-             >
-
-        <div class="project-content">
-
-            <h3>Interactive Dashboard</h3>
-
-            <p>
-                2013-2024 Homeless Shelter Occupancy
-                Analysis in Alberta
-            </p>
-
-            <span class="view-project">
-                View Project →
-            </span>
-
-        </div>
+<header>
+    <div class="subtitle">
+        GIS · SPATIAL ANALYSIS · DATA VISUALIZATION
     </div>
 
-</a>
+    <h1>Ava Brown</h1>
 
-
-      
-<div class="kenow">
-
-    <h3>Kenow Wildfire Burn Severity Analysis</h3>
+    <p>GIS & Spatial Data Portfolio</p>
 
     <p>
-        Analysis of wildfire burn severity using
-        satellite imagery and GIS techniques.
+        University of Alberta Graduate
+        | Bachelor of Science
     </p>
+</header>
 
-    <div class="kenow-gallery">
 
-        <img src="projects/kenow/before.png"
-             alt="Before wildfire">
+<!-- NAVIGATION -->
 
-        <img src="projects/kenow/after.png"
-             alt="After wildfire">
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-        <img src="projects/kenow/oneyear.png"
-             alt="One year">
 
-        <img src="projects/kenow/fiveyear.png"
-             alt="Five year">
+<!-- ABOUT -->
+
+<section class="container" id="about">
+
+    <div class="about">
+
+        <h2 class="section-title">About Me</h2>
+
+        <p>
+            University of Alberta graduate with a
+            Bachelor of Science in Psychology and
+            Earth & Atmosphere Sciences.
+
+            Interested in GIS, spatial analysis,
+            environmental applications, and
+            data visualization.
+        </p>
 
     </div>
-
-    <a href="projects/kenow/report.pdf"
-       target="_blank"
-       class="report-button">
-       View Report PDF →
-    </a>
-
-</div>
 
 </section>
 
 
-    <h2>Contact</h2>
-    <p>Email: amb2@ualberta.ca </p>
+<!-- SKILLS -->
+
+<section class="container" id="skills">
+
+    <h2 class="section-title">Skills</h2>
+
+    <div class="skills">
+        <span class="skill">GIS</span>
+        <span class="skill">R Programming</span>
+        <span class="skill">Spatial Analysis</span>
+        <span class="skill">Data Visualization</span>
+        <span class="skill">Remote Sensing</span>
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section class="container" id="projects">
+
+    <h2 class="section-title">Featured Projects</h2>
+
+    <div class="project-grid">
+
+
+        <!-- PROJECT 1 -->
+
+        <div class="project-card">
+
+            <img class="project-image"
+                 src="projects/SCS/scs_pres.png"
+                 alt="Safe Consumption Sites and Hospitals Accessibility Map">
+
+            <div class="project-content">
+
+                <h3>
+                    Accessibility Analysis of Safe Consumption
+                    Sites & Hospitals in Vancouver
+                </h3>
+
+                <p>
+                    GIS-based accessibility analysis examining
+                    the spatial relationship between safe
+                    consumption sites and hospitals in Vancouver.
+                </p>
+
+                <div class="project-tags">
+                    GIS · Spatial Analysis · Vancouver
+                </div>
+
+                <a href="projects/SCS/scs_report.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="project-button">
+                    View Report →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 2 -->
+
+        <div class="project-card">
+
+            <img class="project-image"
+                 src="projects/dashboard/cover.png"
+                 alt="Alberta Homeless Shelter Occupancy Dashboard">
+
+            <div class="project-content">
+
+                <h3>Interactive Dashboard</h3>
+
+                <p>
+                    2013–2024 Homeless Shelter Occupancy
+                    Analysis in Alberta.
+                </p>
+
+                <div class="project-tags">
+                    R Programming · Data Analysis · Dashboard
+                </div>
+
+                <a href="https://ava-12-red.shinyapps.io/shelter_analysis_alberta_2013_2024/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="project-button">
+                    View Live Dashboard →
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- PROJECT 3 -->
+
+        <div class="project-card">
+
+            <div class="project-content">
+
+                <h3>
+                    Kenow Wildfire Burn Severity Analysis
+                </h3>
+
+                <p>
+                    Analysis of wildfire impacts and
+                    landscape changes over time.
+                </p>
+
+                <div class="project-tags">
+                    GIS · Remote Sensing · Environmental Analysis
+                </div>
+
+                <div class="kenow-gallery">
+
+                    <img src="projects/kenow/before.png"
+                         alt="Before wildfire">
+
+                    <img src="projects/kenow/after.png"
+                         alt="After wildfire">
+
+                    <img src="projects/kenow/oneyear.png"
+                         alt="One year after wildfire">
+
+                    <img src="projects/kenow/fiveyear.png"
+                         alt="Five years after wildfire">
+
+                </div>
+
+                <a href="projects/kenow/report.pdf"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="project-button">
+                    View Report →
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <h2>Get in Touch</h2>
+
+    <p>
+        Interested in connecting or discussing my projects?
+    </p>
+
+    <p>
+        Email:
+        <a href="mailto:amb2@ualberta.ca">
+            amb2@ualberta.ca
+        </a>
+    </p>
+
+</section>
+
+
+<footer>
+    © 2026 Ava Brown | GIS Portfolio
+</footer>
 
 
 </body>
